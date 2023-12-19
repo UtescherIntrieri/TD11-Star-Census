@@ -21,6 +21,14 @@ async function searchPlanet(){
   let res = await fetch(`https://swapi.dev/api/planets/?search=${search}`)
   let {results} = await res.json()
   let planet = results[0]
+  let span = document.createElement('span')
+  span.innerHTML = `
+  <p>Name: ${planet.name}</p>
+  <p>Climate: ${planet.climate}</p>
+  <p>Population: ${planet.population}</p>
+  <p>Terrain: ${planet.terrain}</p>`
+
+  searchRes.appendChild(span)
 
   console.log(search)
   console.log(planet)
